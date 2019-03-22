@@ -22,7 +22,7 @@ public class Main {
 
 		window.setBounds(25, 20, 678, 569);
 		window.setResizable(false);
-		window.setTitle("Pacman Anna Makoœ");
+		window.setTitle("Pacman Anna Makos");
 		window.add(gamePlay);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
