@@ -24,7 +24,7 @@ public class Character extends GamePlay {
 	protected int ghostX, ghostY;
 	/**
 	 * Czas, po jakim zostanie wylosowany kolejny ruch obiektu klasy Character -
-	 * wykorzystywany rowniez w klase Move
+	 * wykorzystywany rowniez w klasie Move
 	 */
 	protected int moveDelay;
 
@@ -41,20 +41,20 @@ public class Character extends GamePlay {
 	 * @param y
 	 *            wspolrzedna y poczatkowa obiektu
 	 */
-	protected Character(String s, int x, int y) {
-		chFile = new ImageIcon(s);
+	protected Character(ImageIcon s, int x, int y) {
+		chFile = s;
 		ch = chFile.getImage();
 		this.ghostX = x;
 		this.ghostY = y;
 
 		if (startClick[2][0]) {
-			chMoveSize = 1;
+			chMoveSize = 10;
 			moveDelay = 3000;
 		} else if (startClick[2][1]) {
-			chMoveSize = 2;
+			chMoveSize = 20;
 			moveDelay = 2000;
 		} else if (startClick[2][2]) {
-			chMoveSize = 5;
+			chMoveSize = 50;
 			moveDelay = 1000;
 		}
 	}

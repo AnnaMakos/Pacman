@@ -38,7 +38,7 @@ public class Board implements ImageObserver {
 	 * obiekt Variable - nadaje wartosci zmiennym a, b - inicjalizuje tablice tab
 	 */
 	protected Board() {
-		boardFile = new ImageIcon("kwadrat.png");
+		boardFile = new ImageIcon(getClass().getClassLoader().getResource("kwadrat.png"));
 		board = boardFile.getImage();
 		v = new Variable();
 

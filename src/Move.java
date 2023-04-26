@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Random;
 /**
  * 
@@ -16,16 +17,13 @@ public class Move extends Character {
 	 * Konstruktor klasy Move - Wywoluje konstruktor klasy Character, po ktorej
 	 * dziedziczy - wywoluje konstruktory innych klas - ustawia wartosc zmiennej
 	 * startTime
-	 * 
-	 * @param s
-	 *            nazwa pliku png, w ktorym znajduje sie grafika przypisana do
-	 *            obiektu klasy Move
-	 * @param x
-	 *            wspolrzedna x poczatkowa obiektu
-	 * @param y
-	 *            wpolrzedna y poczatkowa obiektu
+	 *
+	 * @param s nazwa pliku png, w ktorym znajduje sie grafika przypisana do
+	 *          obiektu klasy Move
+	 * @param x wspolrzedna x poczatkowa obiektu
+	 * @param y wpolrzedna y poczatkowa obiektu
 	 */
-	protected Move(String s, int x, int y) {
+	protected Move(ImageIcon s, int x, int y) {
 		super(s, x, y);
 		rand = new Random();
 		b = new Board();

@@ -149,10 +149,10 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener, Mou
 			} else if (startClick[2][2]) {
 				pacmanMoveSize = 5;
 			}
-			pacmanFileRight = new ImageIcon("pacman_right.png");
-			pacmanFileLeft = new ImageIcon("pacman_left.png");
-			pacmanFileDown = new ImageIcon("pacman_down.png");
-			pacmanFileUp = new ImageIcon("pacman_up.png");
+			pacmanFileRight = new ImageIcon(getClass().getClassLoader().getResource("pacman_right.png"));
+			pacmanFileLeft = new ImageIcon(getClass().getClassLoader().getResource("pacman_left.png"));
+			pacmanFileDown = new ImageIcon(getClass().getClassLoader().getResource("pacman_down.png"));
+			pacmanFileUp = new ImageIcon(getClass().getClassLoader().getResource("pacman_up.png"));
 			pacmanUp = pacmanFileUp.getImage();
 			pacmanDown = pacmanFileDown.getImage();
 			pacmanRight = pacmanFileRight.getImage();
@@ -177,14 +177,15 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener, Mou
 
 			// GHOSTS
 			if (first[0]) {
-				moveG1 = new Move("ghost1.png", 611, 481);
+				ImageIcon ghost1 = new ImageIcon(getClass().getClassLoader().getResource("ghost1.png"));
+				moveG1 = new Move(ghost1, 611, 481);
 				first[0] = false;
 			}
 			g.drawImage(moveG1.ch, moveG1.ghostX, moveG1.ghostY, board.boardSize, board.boardSize, this);
 
 			if (!startClick[0][0]) {
 				if (first[1]) {
-					moveG2 = new Move("ghost2.png", 50, 450);
+					moveG2 = new Move(new ImageIcon(getClass().getClassLoader().getResource("ghost2.png")), 50, 450);
 					first[1] = false;
 				}
 				g.drawImage(moveG2.ch, moveG2.ghostX, moveG2.ghostY, board.boardSize, board.boardSize, this);
@@ -192,7 +193,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener, Mou
 
 			if (startClick[0][2] || startClick[0][3]) {
 				if (first[2]) {
-					moveG3 = new Move("ghost3.png", 550, 100);
+					moveG3 = new Move(new ImageIcon(getClass().getClassLoader().getResource("ghost3.png")), 550, 100);
 					first[2] = false;
 				}
 				g.drawImage(moveG3.ch, moveG3.ghostX, moveG3.ghostY, board.boardSize, board.boardSize, this);
@@ -200,14 +201,14 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener, Mou
 
 			if (startClick[0][3]) {
 				if (first[3]) {
-					moveG4 = new Move("ghost4.png", 300, 300);
+					moveG4 = new Move(new ImageIcon(getClass().getClassLoader().getResource("ghost4.png")), 300, 300);
 					first[3] = false;
 				}
 				g.drawImage(moveG4.ch, moveG4.ghostX, moveG4.ghostY, board.boardSize, board.boardSize, this);
 			}
 
 			// DIAMENTY
-			diamondFile = new ImageIcon("diamond.png");
+			diamondFile = new ImageIcon(getClass().getClassLoader().getResource("diamond.png"));
 			diamond = diamondFile.getImage();
 			for (int i = 0; i < board.a; i++) {
 				for (int j = 0; j < board.b; j++) {
@@ -235,7 +236,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener, Mou
 			g.drawString("WYNIK: " + score + "/" + maxScore, 220, 55);
 
 			// SERCA -ZYCIA
-			heartFile = new ImageIcon("serce.png");
+			heartFile = new ImageIcon(getClass().getClassLoader().getResource("serce.png"));
 			heart = heartFile.getImage();
 			for (int i = 0; i < heartNumber; i++) {
 				g.drawImage(heart, 55 * i + 15, 15, 50, 50, this);
