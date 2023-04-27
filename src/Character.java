@@ -48,13 +48,13 @@ public class Character {
 		this.ghostY = y;
 
 		if (gamePlay.startClick[2][0]) {
-			chMoveSize = 10;
+			chMoveSize = 1;
 			moveDelay = 3000;
 		} else if (gamePlay.startClick[2][1]) {
-			chMoveSize = 20;
+			chMoveSize = 2;
 			moveDelay = 2000;
 		} else if (gamePlay.startClick[2][2]) {
-			chMoveSize = 50;
+			chMoveSize = 5;
 			moveDelay = 1000;
 		}
 	}
