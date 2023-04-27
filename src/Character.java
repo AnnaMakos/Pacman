@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
  * @author Ania
  *
  */
-public class Character extends GamePlay {
+public class Character {
 	/**
 	 * Ilosc pikseli, o ktore zwikesza sie lub zmniejsza polozenie obiektu - uzywane
 	 * rowniez w klasie Move
@@ -41,19 +41,19 @@ public class Character extends GamePlay {
 	 * @param y
 	 *            wspolrzedna y poczatkowa obiektu
 	 */
-	protected Character(ImageIcon s, int x, int y) {
+	protected Character(ImageIcon s, int x, int y, GamePlay gamePlay) {
 		chFile = s;
 		ch = chFile.getImage();
 		this.ghostX = x;
 		this.ghostY = y;
 
-		if (startClick[2][0]) {
+		if (gamePlay.startClick[2][0]) {
 			chMoveSize = 10;
 			moveDelay = 3000;
-		} else if (startClick[2][1]) {
+		} else if (gamePlay.startClick[2][1]) {
 			chMoveSize = 20;
 			moveDelay = 2000;
-		} else if (startClick[2][2]) {
+		} else if (gamePlay.startClick[2][2]) {
 			chMoveSize = 50;
 			moveDelay = 1000;
 		}

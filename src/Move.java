@@ -7,11 +7,11 @@ import java.util.Random;
  */
 public class Move extends Character {
 
+	private final GamePlay gamePlay;
 	private Board b;
 	private Random rand;
-	private int where;
 	private long startTime;
-	private boolean up = false, down = false, right = false, left = true;
+	private Direction where = Direction.UP;
 
 	/**
 	 * Konstruktor klasy Move - Wywoluje konstruktor klasy Character, po ktorej
@@ -23,8 +23,9 @@ public class Move extends Character {
 	 * @param x wspolrzedna x poczatkowa obiektu
 	 * @param y wpolrzedna y poczatkowa obiektu
 	 */
-	protected Move(ImageIcon s, int x, int y) {
-		super(s, x, y);
+	protected Move(ImageIcon s, int x, int y, GamePlay gamePlay) {
+		super(s, x, y, gamePlay);
+		this.gamePlay = gamePlay;
 		rand = new Random();
 		b = new Board();
 		startTime = System.currentTimeMillis();
@@ -37,53 +38,39 @@ public class Move extends Character {
 	protected void moving() {
 
 		if (System.currentTimeMillis() > startTime + moveDelay) {
-			where = rand.nextInt(5);
+			where = Direction.values()[rand.nextInt(4)];
 			startTime = System.currentTimeMillis();
 		}
 
-		if (where == 0) { // up
-			up = true;
-			down = right = left = false;
-		} else if (where == 1) { // down
-			down = true;
-			up = right = left = false;
-		} else if (where == 2) { // right
-			right = true;
-			down = up = left = false;
-		} else if (where == 3) { // left
-			left = true;
-			down = up = right = false;
-		} // where == 4 - no change
-
-		if (left) {
+		if (where == Direction.LEFT) {
 			if (ghostX > b.boardX) {
 				ghostX -= chMoveSize;
 			} else {
-				left = false;
-				right = true;
+				where = Direction.RIGHT;
 			}
-		} else if (up) {
+		} else if (where == Direction.UP) {
 			if (ghostY > b.boardY) {
 				ghostY -= chMoveSize;
 			} else {
-				up = false;
-				down = true;
+				where = Direction.DOWN;
 			}
-		} else if (right) {
-			if (ghostX < lastX) {
+		} else if (where == Direction.RIGHT) {
+			if (ghostX < gamePlay.lastX) {
 				ghostX += chMoveSize;
 			} else {
-				right = false;
-				left = true;
+				where = Direction.LEFT;
 			}
-		} else if (down) {
-			if (ghostY < lastY) {
+		} else if (where == Direction.DOWN) {
+			if (ghostY < gamePlay.lastY) {
 				ghostY += chMoveSize;
 			} else {
-				down = false;
-				up = true;
+				where = Direction.UP;
 			}
 		}
 
+	}
+
+	private enum Direction {
+		UP, DOWN, RIGHT, LEFT
 	}
 }

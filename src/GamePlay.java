@@ -177,15 +177,14 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener, Mou
 
 			// GHOSTS
 			if (first[0]) {
-				ImageIcon ghost1 = new ImageIcon(getClass().getClassLoader().getResource("ghost1.png"));
-				moveG1 = new Move(ghost1, 611, 481);
+				moveG1 = new Move(new ImageIcon(getClass().getClassLoader().getResource("ghost1.png")), 611, 481, this);
 				first[0] = false;
 			}
 			g.drawImage(moveG1.ch, moveG1.ghostX, moveG1.ghostY, board.boardSize, board.boardSize, this);
 
 			if (!startClick[0][0]) {
 				if (first[1]) {
-					moveG2 = new Move(new ImageIcon(getClass().getClassLoader().getResource("ghost2.png")), 50, 450);
+					moveG2 = new Move(new ImageIcon(getClass().getClassLoader().getResource("ghost2.png")), 50, 450, this);
 					first[1] = false;
 				}
 				g.drawImage(moveG2.ch, moveG2.ghostX, moveG2.ghostY, board.boardSize, board.boardSize, this);
@@ -193,7 +192,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener, Mou
 
 			if (startClick[0][2] || startClick[0][3]) {
 				if (first[2]) {
-					moveG3 = new Move(new ImageIcon(getClass().getClassLoader().getResource("ghost3.png")), 550, 100);
+					moveG3 = new Move(new ImageIcon(getClass().getClassLoader().getResource("ghost3.png")), 550, 100, this);
 					first[2] = false;
 				}
 				g.drawImage(moveG3.ch, moveG3.ghostX, moveG3.ghostY, board.boardSize, board.boardSize, this);
@@ -201,7 +200,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener, Mou
 
 			if (startClick[0][3]) {
 				if (first[3]) {
-					moveG4 = new Move(new ImageIcon(getClass().getClassLoader().getResource("ghost4.png")), 300, 300);
+					moveG4 = new Move(new ImageIcon(getClass().getClassLoader().getResource("ghost4.png")), 300, 300, this);
 					first[3] = false;
 				}
 				g.drawImage(moveG4.ch, moveG4.ghostX, moveG4.ghostY, board.boardSize, board.boardSize, this);
