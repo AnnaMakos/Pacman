@@ -12,13 +12,10 @@ public class Main {
 	public static void main(String[] args) {
 		new Main();
 	}
-	
-	private JFrame window;
-	private GamePlay gamePlay;
 
 	private Main() {
-		gamePlay = new GamePlay();
-		window = new JFrame();
+		GamePlay gamePlay = new GamePlay();
+		JFrame window = new JFrame();
 
 		window.setBounds(25, 20, 678, 569);
 		window.setResizable(false);

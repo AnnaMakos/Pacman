@@ -7,11 +7,13 @@ public class Variable {
 	/**
 	 * Rozmiar ramki okna, w ktorym znajduje sie grafika
 	 */
-	protected int xR, yR;
+	protected int xR;
+	protected int yR;
 	/**
 	 * Romiar okna, ktore jest budowane po uruchomieniu programu
 	 */
-	protected int a, b;
+	protected int a;
+	protected int b;
 
 	/**
 	 * Konstruktor klasy Variable - nadaje warosci zmiennym

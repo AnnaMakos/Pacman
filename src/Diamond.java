@@ -7,7 +7,6 @@ import java.awt.Rectangle;
  */
 public class Diamond {
 
-	private Rectangle rect;
 	/**
 	 * Zmienna okreslajaca element tablicy, w ktorym diament znajduje sie, badz nie
 	 * - uzywana rowniez w klasie GamePlay
@@ -32,8 +31,7 @@ public class Diamond {
 	 *            okresla element tablicy, do ktorej przypisany zostaje objekt klasy
 	 *            Diament
 	 */
-	protected Diamond(Rectangle rect, int i, int j) {
-		this.rect = rect;
+	protected Diamond(int i, int j) {
 		this.i = i;
 		this.j = j;
 		eaten = false;

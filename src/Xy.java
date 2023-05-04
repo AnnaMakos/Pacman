@@ -7,11 +7,15 @@ public class Xy {
 	/**
 	 * Zmienna okreslajaca wspolrzedna obiektu klasy
 	 */
-	protected int x, y;
+	protected int x;
+	protected int y;
 	/**
 	 * Flaga informujaca o mozliwosci przejscia w danym kierunku
 	 */
-	protected boolean left, right, up, down;
+	protected boolean left;
+	protected boolean right;
+	protected boolean up;
+	protected boolean down;
 	/**
 	 * Flaga informujaca o tym, czy dany obiekt jest na planszy jako kwadrat, przez
 	 * ktory nie mozna przejsc

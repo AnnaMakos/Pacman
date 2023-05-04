@@ -8,8 +8,8 @@ import java.util.Random;
 public class Move extends Character {
 
 	private final GamePlay gamePlay;
-	private Board b;
-	private Random rand;
+	private final Board b;
+	private final Random rand;
 	private long startTime;
 	private Direction where = Direction.UP;
 

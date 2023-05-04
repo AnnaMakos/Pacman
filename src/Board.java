@@ -1,6 +1,7 @@
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
@@ -18,7 +19,8 @@ public class Board implements ImageObserver {
 	/**
 	 * Wspolrzedna poczatku planszy gry. Wykorzystywana rowniez w GamePlay
 	 */
-	protected int boardX = 11, boardY = 81;
+	protected int boardX = 11;
+	protected int boardY = 81;
 	/**
 	 * Tablica przechowuje elementy klasy Xy. Kazdy element opisuje kwadrat na
 	 * "szachownicy" - planszy gry. Uzywana rowniez w klasie GamePlay.
@@ -28,22 +30,21 @@ public class Board implements ImageObserver {
 	 * Zmienna okreslajaca rozmiar tablicy tab. Wykorzystywana rowniez w klasie
 	 * GamePlay.
 	 */
-	protected int a, b;
-	private Image board;
-	private ImageIcon boardFile;
-	private Variable v;
+	protected int a;
+	protected int b;
+	private final Image image;
 
 	/**
 	 * Konstruktor klasy Board - wczytuje plik z grafika kwadratu planszy - tworzy
 	 * obiekt Variable - nadaje wartosci zmiennym a, b - inicjalizuje tablice tab
 	 */
 	protected Board() {
-		boardFile = new ImageIcon(getClass().getClassLoader().getResource("kwadrat.png"));
-		board = boardFile.getImage();
-		v = new Variable();
+		ImageIcon boardFile = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("kwadrat.png")));
+		image = boardFile.getImage();
+		Variable v = new Variable();
 
-		b = (int) (677 - v.xR) / boardSize;
-		a = (int) (509 - v.yR) / boardSize;
+		b = (677 - v.xR) / boardSize;
+		a = (509 - v.yR) / boardSize;
 		tab = new Xy[a][b];
 		int bX = boardX;
 		int bY = boardY;
@@ -132,7 +133,7 @@ public class Board implements ImageObserver {
 	}
 
 	private void insertS(int x, int y, Graphics g) {
-		g.drawImage(board, tab[x][y].x, tab[x][y].y, boardSize, boardSize, this);
+		g.drawImage(image, tab[x][y].x, tab[x][y].y, boardSize, boardSize, this);
 		if (y < b - 1) {
 			tab[x][y + 1].left = false;
 		}
@@ -150,7 +151,6 @@ public class Board implements ImageObserver {
 
 	@Override
 	public boolean imageUpdate(Image arg0, int arg1, int arg2, int arg3, int arg4, int arg5) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

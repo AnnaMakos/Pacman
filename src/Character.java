@@ -12,7 +12,6 @@ public class Character {
 	 * rowniez w klasie Move
 	 */
 	protected int chMoveSize;
-	private ImageIcon chFile;
 	/**
 	 * Grafika obiektu Character - uzywana rowniez w klasie GamePlay
 	 */
@@ -21,7 +20,8 @@ public class Character {
 	 * Zmienna okreslajaca polozenie obiektu - uzywana rowniez w klasach GamePlay i
 	 * Move
 	 */
-	protected int ghostX, ghostY;
+	protected int ghostX;
+	protected int ghostY;
 	/**
 	 * Czas, po jakim zostanie wylosowany kolejny ruch obiektu klasy Character -
 	 * wykorzystywany rowniez w klasie Move
@@ -42,8 +42,7 @@ public class Character {
 	 *            wspolrzedna y poczatkowa obiektu
 	 */
 	protected Character(ImageIcon s, int x, int y, GamePlay gamePlay) {
-		chFile = s;
-		ch = chFile.getImage();
+		ch = s.getImage();
 		this.ghostX = x;
 		this.ghostY = y;
 
